@@ -1,0 +1,90 @@
+@use "../abstracts/variables" as *;
+
+.table {
+	width: 100%;
+	padding: 1rem;
+
+	&__filter {
+		border: 1px solid var(--color-gray);
+		border-radius: var(--brdr-rds);
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+
+		gap: 1rem;
+
+		padding-inline: 1rem;
+		padding-block: 0.15rem;
+
+		width: 256px;
+		margin-bottom: 1rem;
+
+		svg {
+			width: 16px;
+			color: var(--color-gray);
+		}
+
+		input {
+			border: none;
+			outline: none;
+		}
+	}
+
+	&__table {
+		border: 1px solid var(--color-gray);
+		border-collapse: collapse;
+
+		width: 100%;
+
+		thead {
+			background-color: #fafafa;
+
+			tr {
+				th {
+					padding-block: 8px;
+				}
+			}
+		}
+
+		tbody {
+			border: 1px solid var(--color-gray);
+
+			tr {
+				td {
+					border-bottom: 1px solid var(--color-gray);
+					text-align: center;
+					padding-block: 8px;
+				}
+			}
+		}
+	}
+
+	&__row {
+		&-tag {
+			.tag {
+				color: #222222;
+				padding-inline: 8px;
+				border-radius: 1rem;
+
+                font-size: 14px;
+                padding-block: 2px;
+
+                border: 1px solid #222222;
+
+				&.level1 {
+					background-color: $Amber100;
+				}
+
+				&.level2 {
+					background-color: $Red100;
+				}
+
+				&.level3 {
+					background-color: $Blue100;
+				}
+			}
+		}
+	}
+}

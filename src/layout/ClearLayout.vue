@@ -1,0 +1,12 @@
+<!-- src/components/layouts/ClearLayout.vue -->
+<template>
+	<div>
+		<router-view />
+	</div>
+</template>
+
+<script>
+export default {
+	name: "ClearLayout",
+};
+</script>
