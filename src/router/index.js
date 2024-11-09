@@ -5,6 +5,7 @@ import ClearLayout from '../layout/ClearLayout.vue'
 
 import FlashcardListing from '../pages/flashcards/Listing.vue'
 import StudyMode from "../pages/flashcards/StudyMode.vue"
+import CreateFlashcard from "../pages/flashcards/CreateFlashcard.vue"
 
 import AccountSettings from "../pages/settings/AccountSettings.vue"
 import Preferences from "../pages/settings/Preferences.vue"
@@ -25,6 +26,7 @@ const routes = [
 		children: [
 			{ path: "listing", component: FlashcardListing },
 			{ path: "study", component: StudyMode },
+			{ path: "create", component: CreateFlashcard },
 		],
 	},
 	{
