@@ -241,7 +241,7 @@ export default {
 
 		// Pagination controls
 		const currentPage = ref(1);
-		const itemsPerPage = ref(5);
+		const itemsPerPage = ref(25);
 
 		// Computed properties
 		const filteredItems = computed(() => {
