@@ -118,6 +118,7 @@ export default {
 				newQuestion.value = "";
 				newAnswer.value = "";
 			}
+			console.log(flashcards.value);
 		};
 
 		const editFlashcard = (index) => {

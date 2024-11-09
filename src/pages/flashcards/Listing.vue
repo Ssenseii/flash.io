@@ -158,6 +158,7 @@ export default {
 				id: 1,
 				name: "Card 1",
 				category: "History",
+				numberOfCards: 6,
 				lastReviewDate: "24-07-2024",
 				attempts: 6,
 			},
@@ -165,6 +166,7 @@ export default {
 				id: 2,
 				name: "Card 2",
 				category: "Science",
+				numberOfCards: 6,
 				lastReviewDate: "20-08-2024",
 				attempts: 4,
 			},
@@ -172,6 +174,7 @@ export default {
 				id: 3,
 				name: "Card 3",
 				category: "Language",
+				numberOfCards: 6,
 				lastReviewDate: "05-09-2024",
 				attempts: 2,
 			},
@@ -179,6 +182,7 @@ export default {
 				id: 4,
 				name: "Card 4",
 				category: "Math",
+				numberOfCards: 6,
 				lastReviewDate: "12-10-2024",
 				attempts: 8,
 			},
@@ -186,6 +190,7 @@ export default {
 				id: 5,
 				name: "Card 5",
 				category: "Geography",
+				numberOfCards: 6,
 				lastReviewDate: "25-11-2024",
 				attempts: 3,
 			},
@@ -193,6 +198,7 @@ export default {
 				id: 6,
 				name: "Card 6",
 				category: "Art History",
+				numberOfCards: 6,
 				lastReviewDate: "08-12-2024",
 				attempts: 5,
 			},
@@ -200,6 +206,7 @@ export default {
 				id: 7,
 				name: "Card 7",
 				category: "Literature",
+				numberOfCards: 6,
 				lastReviewDate: "22-01-2025",
 				attempts: 1,
 			},
@@ -207,6 +214,7 @@ export default {
 				id: 8,
 				name: "Card 8",
 				category: "Philosophy",
+				numberOfCards: 6,
 				lastReviewDate: "05-02-2025",
 				attempts: 7,
 			},
@@ -214,12 +222,14 @@ export default {
 				id: 9,
 				name: "Card 9",
 				category: "Music Theory",
+				numberOfCards: 6,
 				lastReviewDate: "18-03-2025",
 				attempts: 6,
 			},
 			{
 				id: 10,
 				name: "Card 10",
+				numberOfCards: 6,
 				category: "Computer Science",
 				lastReviewDate: "01-04-2025",
 				attempts: 4,
@@ -229,6 +239,7 @@ export default {
 		const columns = [
 			{ label: "Name", key: "name" },
 			{ label: "Category", key: "category" },
+			{ label: "N° of Cards", key: "numberOfCards" },
 			{ label: "Last Review Date", key: "lastReviewDate" },
 			{ label: "Attempts", key: "attempts" },
 		];
@@ -306,7 +317,7 @@ export default {
 		const runItem = (item) => {
 			alert(`Runnning item: ${item.name}`);
 		};
-		
+
 		const editItem = (item) => {
 			alert(`Editing item: ${item.name}`);
 		};
