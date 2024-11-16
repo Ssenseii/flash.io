@@ -25,6 +25,14 @@
 		text-align: center;
 	}
 
+    &__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin-block: 2rem;
+    }
+
 	&__email, &__password {
 		border: 1px solid var(--color-gray);
 		border-radius: var(--brdr-rds);
@@ -48,8 +56,32 @@
 		}
 
 		input {
+            min-width: 256px;
 			border: none;
 			outline: none;
 		}
 	}
+
+    &__password{
+        margin-bottom: 1rem;
+    }
+
+    &__actions{
+        display: flex;
+        flex-flow: column nowrap;
+
+        text-align: end;
+        width: 325px;
+
+        a{
+            color: var(--color-dark);
+            opacity: 0.5; 
+            margin-bottom: 0.5rem;
+
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+
 }

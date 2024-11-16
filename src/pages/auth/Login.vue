@@ -69,7 +69,7 @@
 				</svg>
 				<input type="password" name="password" placeholder="Your Password..." />
 			</div>
-			<input type="submit" value="Log In" />
+			<input class="button primary-button" type="submit" value="Log In" />
 		</form>
 
 		<div class="login__actions">
