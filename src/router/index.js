@@ -8,7 +8,6 @@ import StudyMode from "../pages/flashcards/StudyMode.vue"
 import CreateFlashcard from "../pages/flashcards/CreateFlashcard.vue"
 
 import AccountSettings from "../pages/settings/AccountSettings.vue"
-import Preferences from "../pages/settings/Preferences.vue"
 
 import Login from "../pages/auth/Login.vue";
 import Register from "../pages/auth/Register.vue";
@@ -22,6 +21,7 @@ const routes = [
 	},
 	{
 		path: "/flashcards",
+		redirect: "/flashcards/listing",
 		component: MainLayout,
 		children: [
 			{ path: "listing", component: FlashcardListing },
@@ -31,11 +31,9 @@ const routes = [
 	},
 	{
 		path: "/settings",
+		redirect: "/settings/preferences",
 		component: MainLayout,
-		children: [
-			{ path: "account", component: AccountSettings },
-			{ path: "preferences", component: Preferences },
-		],
+		children: [{ path: "preferences", component: AccountSettings }],
 	},
 	{
 		path: "/auth",

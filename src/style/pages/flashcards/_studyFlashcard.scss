@@ -24,6 +24,14 @@
 				font-weight: 800;
 			}
 		}
+
+        a{
+            color: var(--color-gray);
+
+            &:hover{
+                color: var(--color-dark);
+            }
+        }
 	}
 
 	&__card {

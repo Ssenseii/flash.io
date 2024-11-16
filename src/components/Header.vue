@@ -20,10 +20,10 @@
 				<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
 				<path d="M21 21l-6 -6" />
 			</svg>
-			<input type="text" name="search" autocomplete="off" placeholder="Search Flashcards..."/>
+			<input type="text" name="search" autocomplete="off" placeholder="Search Module..."/>
 		</div>
 		<div class="header__settings">
-			<router-link to="/settings/account">
+			<router-link to="/settings">
 				<img src="../assets/images/placeholder-user.png" alt="">
 			</router-link>
 		</div>

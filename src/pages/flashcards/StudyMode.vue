@@ -6,28 +6,29 @@
 			<p>number of cards: <span>4</span></p>
 			<p>date created: <span>21-07-2024</span></p>
 			<p>number of attempts: <span>12</span></p>
-            <router-link to="/">
-                Back to Home
-            </router-link>
+            <br />
+			<router-link to="/"> Back to Home </router-link>
 		</div>
 
 		<div class="study-container__card" @click="flipCard">
 			<div v-if="!isFlipped" class="question">
-				<h3>Question: </h3>
-                <p>{{ currentCard.question }}</p>
+				<h3>Question:</h3>
+				<p>{{ currentCard.question }}</p>
 			</div>
 			<div v-else class="answer">
-                <h3>Answer: </h3>
+				<h3>Answer:</h3>
 				<p>{{ currentCard.answer }}</p>
 			</div>
 		</div>
 
 		<div class="study-container__controls">
 			<p>Card {{ currentIndex + 1 }} of {{ cards.length }}</p>
-            <div class="actions">
-                <button @click="prevCard" :disabled="currentIndex === 0">Previous</button>
-                <button @click="nextCard" :disabled="currentIndex === cards.length - 1">Next</button>
-            </div>
+			<div class="actions">
+				<button @click="prevCard" :disabled="currentIndex === 0">Previous</button>
+				<button @click="nextCard" :disabled="currentIndex === cards.length - 1">
+					Next
+				</button>
+			</div>
 			<button @click="resetAndShuffle">Reset & Shuffle</button>
 		</div>
 	</div>

@@ -1,7 +1,7 @@
 @use "../abstracts/mixins" as *;
 
 .button {
-	padding-inline: 8px;
+	padding-inline: 16px;
 	padding-block: 4px;
 
 	border-radius: var(--brdr-rds);
@@ -13,26 +13,29 @@
 	justify-content: center;
 	gap: 1rem;
 
-    font-weight: 600;
+	font-weight: 600;
 
-	svg {
-		width: 14px;
+	a {
+		text-decoration: none;
 	}
 }
 
 .primary-button {
 	background-color: var(--color-accent);
+	border: 2px solid var(--color-accent);
 	color: var(--color-light);
 
-	border: 2px solid var(--color-accent);
+	a {
+		color: var(--color-light);
+	}
 }
 
 .secondary-button {
-
-    padding-block: 8px;
-
 	background-color: transparent;
+	border: 2px solid var(--color-accent);
 	color: var(--color-accent);
 
-	border: 2px solid var(--color-accent);
+	a {
+		color: var(--color-accent);
+	}
 }
