@@ -1,24 +1,6 @@
 <!-- src/pages/auth/Login.vue -->
 <template>
 	<div class="auth login">
-		<!-- 
-		Logo Image
-
-		Title Login Start
-		Description
-
-
-		Login Email
-		Login Password
-
-		Login Button
-
-		Forgot Password
-		Don't have an account
-
-		WebPage
-
-		-->
 
 		<div class="login__logo">
 			<img src="../../assets/images/logo.png" alt="Flashio Logo" />
@@ -30,7 +12,7 @@
 		</p>
 
 		<form method="POST" class="login__form">
-			<div class="login__email">
+			<div class="login__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -48,7 +30,7 @@
 				</svg>
 				<input id="email" type="email" name="email" placeholder="Email..." />
 			</div>
-			<div class="login__password">
+			<div class="login__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -73,8 +55,8 @@
 		</form>
 
 		<div class="login__actions">
-			<router-link to="/forgot-password">Forgot Password?</router-link>
-			<router-link to="/register">Don't have an account?</router-link>
+			<router-link to="/auth/forgot-password">Forgot Password?</router-link>
+			<router-link to="/auth/register">Don't have an account?</router-link>
 		</div>
 	</div>
 </template>
