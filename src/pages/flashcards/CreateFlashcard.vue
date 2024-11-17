@@ -149,6 +149,7 @@
 <script>
 import { ref } from "vue";
 import { useFlashcardStore } from "../../stores/flashcards";
+import router from "../../router";
 
 export default {
 	name: "CreateFlashcard",
@@ -234,6 +235,7 @@ export default {
 				flashcardName.value = "";
 				flashcardCategory.value = "";
 				flashcards.value = [];
+				router.push('/');
 			} else {
 				alert("Please fill in all fields and add at least one flashcard.");
 			}

@@ -3,11 +3,8 @@
 		<div class="listing-header">
 			<h2 class="listing-header__title">Flashcards List</h2>
 			<div class="listing-header__actions">
-				<button class="button secondary-button">Import Flashcards</button>
-				<button class="button secondary-button">Export Flashcards</button>
-
 				<button class="button primary-button">
-					<router-link to="./create">Create Flashcard</router-link>
+					<router-link to="./create">Create Flashcard Collection</router-link>
 				</button>
 			</div>
 		</div>
@@ -132,6 +129,7 @@
 <script>
 import { ref, computed } from "vue";
 import { useFlashcardStore } from "../../stores/flashcards";
+import router from "../../router";
 
 export default {
 	name: "ListingPage",
@@ -141,6 +139,7 @@ export default {
 		const items = ref(store.flashcards.map(({ content, ...rest }) => rest));
 
 		const columns = [
+			{ label: "Id", key: "id" },
 			{ label: "Name", key: "name" },
 			{ label: "Category", key: "category" },
 			{ label: "N° of Cards", key: "numberOfCards" },
@@ -219,7 +218,7 @@ export default {
 		};
 
 		const runItem = (item) => {
-			alert(`Runnning item: ${item.name}`);
+			router.push(`/flashcards/study/${item.id}`);
 		};
 
 		const editItem = (item) => {
@@ -258,7 +257,6 @@ export default {
 			deleteItem,
 			prevPage,
 			nextPage,
-			flashcards: store.allFlashcards,
 		};
 	},
 };

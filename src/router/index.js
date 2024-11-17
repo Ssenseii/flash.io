@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import MainLayout from '../layout/MainLayout.vue'
-import ClearLayout from '../layout/ClearLayout.vue'
+import MainLayout from "../layout/MainLayout.vue";
+import ClearLayout from "../layout/ClearLayout.vue";
 
-import FlashcardListing from '../pages/flashcards/Listing.vue'
-import StudyMode from "../pages/flashcards/StudyMode.vue"
-import CreateFlashcard from "../pages/flashcards/CreateFlashcard.vue"
+import FlashcardListing from "../pages/flashcards/Listing.vue";
+import StudyMode from "../pages/flashcards/StudyMode.vue";
+import CreateFlashcard from "../pages/flashcards/CreateFlashcard.vue";
 
-import AccountSettings from "../pages/settings/AccountSettings.vue"
+import AccountSettings from "../pages/settings/AccountSettings.vue";
 
 import Login from "../pages/auth/Login.vue";
 import Register from "../pages/auth/Register.vue";
@@ -25,7 +25,7 @@ const routes = [
 		component: MainLayout,
 		children: [
 			{ path: "listing", component: FlashcardListing },
-			{ path: "study", component: StudyMode },
+			{ path: "study/:id", component: StudyMode, props: true },
 			{ path: "create", component: CreateFlashcard },
 		],
 	},
@@ -38,10 +38,19 @@ const routes = [
 	{
 		path: "/auth",
 		component: ClearLayout,
+		redirect: "/auth/login",
 		children: [
 			{ path: "login", component: Login },
 			{ path: "register", component: Register },
 		],
+	},
+	{
+		path: "/login",
+		redirect: "/auth/login",
+	},
+	{
+		path: "/register",
+		redirect: "/auth/register",
 	},
 	{
 		path: "/:pathMatch(.*)*",
