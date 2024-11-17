@@ -36,9 +36,13 @@
 
 <script>
 import { ref, computed } from "vue";
+import { useFlashcardStore } from "../../stores/flashcards";
 
 export default {
 	setup() {
+
+		const store = useFlashcardStore();
+
 		const initialCards = [
 			{ question: "What is the capital of France?", answer: "Paris" },
 			{ question: "What is 2 + 2?", answer: "4" },
@@ -158,6 +162,7 @@ export default {
 			nextCard,
 			prevCard,
 			resetAndShuffle,
+			flashcards: store.allFlashcards,
 		};
 	},
 };

@@ -1,9 +1,15 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
+
 import "./style/style.scss";
-import "primeicons/primeicons.css";
 
 import App from "./App.vue";
 
 import router from "./router/index";
 
-createApp(App).use(router).mount("#app");
+const pinia = createPinia();
+
+createApp(App)
+.use(pinia)
+.use(router)
+.mount("#app");

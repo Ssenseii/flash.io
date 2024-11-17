@@ -1,4 +1,3 @@
-<!-- src/components/layouts/ClearLayout.vue -->
 <template>
 	<div>
 		<router-view />

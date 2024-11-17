@@ -3,8 +3,8 @@
 		<div class="listing-header">
 			<h2 class="listing-header__title">Flashcards List</h2>
 			<div class="listing-header__actions">
-				<button class="button secondary-button">Secondary Action</button>
-				<button class="button secondary-button">Secondary Action</button>
+				<button class="button secondary-button">Import Flashcards</button>
+				<button class="button secondary-button">Export Flashcards</button>
 
 				<button class="button primary-button">
 					<router-link to="./create">Create Flashcard</router-link>
@@ -131,93 +131,14 @@
 
 <script>
 import { ref, computed } from "vue";
+import { useFlashcardStore } from "../../stores/flashcards";
 
 export default {
 	name: "ListingPage",
 	setup() {
-		// Sample data
-		const items = ref([
-			{
-				id: 1,
-				name: "Card 1",
-				category: "History",
-				numberOfCards: 6,
-				lastReviewDate: "24-07-2024",
-				attempts: 6,
-			},
-			{
-				id: 2,
-				name: "Card 2",
-				category: "Science",
-				numberOfCards: 6,
-				lastReviewDate: "20-08-2024",
-				attempts: 4,
-			},
-			{
-				id: 3,
-				name: "Card 3",
-				category: "Language",
-				numberOfCards: 6,
-				lastReviewDate: "05-09-2024",
-				attempts: 2,
-			},
-			{
-				id: 4,
-				name: "Card 4",
-				category: "Math",
-				numberOfCards: 6,
-				lastReviewDate: "12-10-2024",
-				attempts: 8,
-			},
-			{
-				id: 5,
-				name: "Card 5",
-				category: "Geography",
-				numberOfCards: 6,
-				lastReviewDate: "25-11-2024",
-				attempts: 3,
-			},
-			{
-				id: 6,
-				name: "Card 6",
-				category: "Art History",
-				numberOfCards: 6,
-				lastReviewDate: "08-12-2024",
-				attempts: 5,
-			},
-			{
-				id: 7,
-				name: "Card 7",
-				category: "Literature",
-				numberOfCards: 6,
-				lastReviewDate: "22-01-2025",
-				attempts: 1,
-			},
-			{
-				id: 8,
-				name: "Card 8",
-				category: "Philosophy",
-				numberOfCards: 6,
-				lastReviewDate: "05-02-2025",
-				attempts: 7,
-			},
-			{
-				id: 9,
-				name: "Card 9",
-				category: "Music Theory",
-				numberOfCards: 6,
-				lastReviewDate: "18-03-2025",
-				attempts: 6,
-			},
-			{
-				id: 10,
-				name: "Card 10",
-				numberOfCards: 6,
-				category: "Computer Science",
-				lastReviewDate: "01-04-2025",
-				attempts: 4,
-			},
-		]);
+		const store = useFlashcardStore();
+
+		const items = ref(store.flashcards.map(({ content, ...rest }) => rest));
 
 		const columns = [
 			{ label: "Name", key: "name" },
@@ -337,6 +258,7 @@ export default {
 			deleteItem,
 			prevPage,
 			nextPage,
+			flashcards: store.allFlashcards,
 		};
 	},
 };

@@ -1,6 +1,75 @@
 <template>
 	<div class="create-flashcard">
-		<h2>Create a Flashcard</h2>
+		<h2>Create Flashcards</h2>
+
+		<div class="create-flashcard__meta">
+			<div class="main-input">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path
+						d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"
+					/>
+					<path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+					<path d="M8 11v-4a4 4 0 1 1 8 0v4" />
+				</svg>
+				<input
+					id="flashcard_name"
+					v-model="flashcardName"
+					type="text"
+					name="flashcards_name"
+					placeholder="Flashcard Name..."
+				/>
+			</div>
+			<div class="main-input">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path
+						d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"
+					/>
+					<path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+					<path d="M8 11v-4a4 4 0 1 1 8 0v4" />
+				</svg>
+				<input
+					id="flashcard_category"
+					v-model="flashcardCategory"
+					type="text"
+					name="flashcards_category"
+					placeholder="Flashcard Category..."
+				/>
+			</div>
+			<div class="create-flashcard__meta-count">
+				<p>Flashcards Created:</p>
+				<strong>{{ flashcards.length }}</strong>
+			</div>
+			<input
+				type="submit"
+				class="button primary-button"
+				value="Save Flashcard Collection"
+				@click="saveCollection"
+			/>
+		</div>
+
+		<h3>Add flashcards</h3>
 
 		<div class="create-flashcard__input">
 			<div class="create-flashcard__input-question">
@@ -13,7 +82,7 @@
 				<textarea v-model="newAnswer" id="answer"></textarea>
 			</div>
 		</div>
-		<button class="button primary-button" @click="addFlashcard">
+		<button class="button secondary-button" @click="addFlashcard">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
@@ -79,10 +148,14 @@
 
 <script>
 import { ref } from "vue";
+import { useFlashcardStore } from "../../stores/flashcards";
 
 export default {
 	name: "CreateFlashcard",
 	setup() {
+		const store = useFlashcardStore();
+		const flashcardName = ref("");
+		const flashcardCategory = ref("");
 		const newQuestion = ref("");
 		const newAnswer = ref("");
 		const flashcards = ref([]);
@@ -100,7 +173,6 @@ export default {
 				newQuestion.value = "";
 				newAnswer.value = "";
 			}
-			console.log(flashcards.value);
 		};
 
 		const editFlashcard = (index) => {
@@ -139,7 +211,37 @@ export default {
 			return text;
 		};
 
+		const formatDate = (date) => {
+			const options = {
+				day: "2-digit",
+				month: "2-digit",
+				year: "numeric",
+			};
+			return new Intl.DateTimeFormat("en-GB", options).format(new Date(date));
+		};
+
+		const saveCollection = () => {
+			if (flashcardName.value && flashcardCategory.value && flashcards.value.length > 0) {
+				store.addFlashcardCollection({
+					id: Date.now(),
+					name: flashcardName.value,
+					category: flashcardCategory.value,
+					numberOfCards: flashcards.value.length,
+					lastReviewDate: formatDate(new Date().toISOString()),
+					attempts: 0,
+					content: flashcards.value,
+				});
+				flashcardName.value = "";
+				flashcardCategory.value = "";
+				flashcards.value = [];
+			} else {
+				alert("Please fill in all fields and add at least one flashcard.");
+			}
+		};
+
 		return {
+			flashcardName,
+			flashcardCategory,
 			newQuestion,
 			newAnswer,
 			flashcards,
@@ -152,6 +254,7 @@ export default {
 			editedQuestion,
 			editedAnswer,
 			truncateText,
+			saveCollection,
 		};
 	},
 };
