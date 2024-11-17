@@ -1,15 +1,15 @@
-<!-- src/pages/auth/Login.vue -->
+
 <template>
-	<div class="auth login">
-		<div class="login__logo">
+	<div class="auth">
+		<div class="auth__logo">
 			<img src="../../assets/images/logo.png" alt="Flashio Logo" />
 		</div>
 
-		<h1 class="login__title">New to FlashIO?</h1>
-		<p class="login__description">Create a new account & start practicing.</p>
+		<h1 class="auth__title">New to FlashIO?</h1>
+		<p class="auth__description">Create a new account & start practicing.</p>
 
-		<form method="POST" class="login__form">
-			<div class="login__input">
+		<form method="POST" class="auth__form">
+			<div class="auth__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -27,7 +27,7 @@
 				</svg>
 				<input id="username" type="text" name="username" placeholder="username..." />
 			</div>
-			<div class="login__input">
+			<div class="auth__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -45,7 +45,7 @@
 				</svg>
 				<input id="email" type="email" name="email" placeholder="Email..." />
 			</div>
-			<div class="login__input">
+			<div class="auth__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -66,7 +66,7 @@
 				</svg>
 				<input type="password" name="password" placeholder="Your Password..." />
 			</div>
-			<div class="login__input">
+			<div class="auth__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -90,7 +90,7 @@
 			<input class="button primary-button" type="submit" value="Create Account" />
 		</form>
 
-		<div class="login__actions">
+		<div class="auth__actions">
 			<router-link to="/auth/login">Already Have an Account?</router-link>
 		</div>
 	</div>

@@ -38,4 +38,13 @@
 	a {
 		color: var(--color-accent);
 	}
+
+	&:hover {
+		background-color: var(--color-accent);
+		color: var(--color-light);
+
+		a {
+			color: var(--color-light);
+		}
+	}
 }

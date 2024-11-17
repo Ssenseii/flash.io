@@ -1,0 +1,38 @@
+.main-input {
+	border: 1px solid var(--color-gray);
+	border-radius: var(--brdr-rds);
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+
+	gap: 1rem;
+
+	padding-inline: 1rem;
+	padding-block: 0.15rem;
+
+	margin-bottom: 0.5rem;
+
+	svg {
+		width: 16px;
+		color: var(--color-dark);
+		opacity: 0.5;
+	}
+
+	input {
+		min-width: 256px;
+		border: none;
+		outline: none;
+
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+	}
+}
+
+.file-input {
+	border: 1px solid var(--color-gray);
+	padding: 0.25rem 0.5rem;
+}

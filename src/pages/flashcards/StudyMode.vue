@@ -24,12 +24,12 @@
 		<div class="study-container__controls">
 			<p>Card {{ currentIndex + 1 }} of {{ cards.length }}</p>
 			<div class="actions">
-				<button @click="prevCard" :disabled="currentIndex === 0">Previous</button>
-				<button @click="nextCard" :disabled="currentIndex === cards.length - 1">
+				<button class="study-button" @click="prevCard" :disabled="currentIndex === 0">Previous</button>
+				<button class="study-button" @click="nextCard" :disabled="currentIndex === cards.length - 1">
 					Next
 				</button>
 			</div>
-			<button @click="resetAndShuffle">Reset & Shuffle</button>
+			<button class="study-button" @click="resetAndShuffle">Reset & Shuffle</button>
 		</div>
 	</div>
 </template>

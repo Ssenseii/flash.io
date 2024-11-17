@@ -1,18 +1,18 @@
-<!-- src/pages/auth/Login.vue -->
-<template>
-	<div class="auth login">
 
-		<div class="login__logo">
+<template>
+	<div class="auth">
+
+		<div class="auth__logo">
 			<img src="../../assets/images/logo.png" alt="Flashio Logo" />
 		</div>
 
-		<h1 class="login__title">Feeling Flashy Today?</h1>
-		<p class="login__description">
+		<h1 class="auth__title">Feeling Flashy Today?</h1>
+		<p class="auth__description">
 			Put your knowledge to the test. <br />Log in and start quizzing.
 		</p>
 
-		<form method="POST" class="login__form">
-			<div class="login__input">
+		<form method="POST" class="auth__form">
+			<div class="auth__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -30,7 +30,7 @@
 				</svg>
 				<input id="email" type="email" name="email" placeholder="Email..." />
 			</div>
-			<div class="login__input">
+			<div class="auth__input">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -54,7 +54,7 @@
 			<input class="button primary-button" type="submit" value="Log In" />
 		</form>
 
-		<div class="login__actions">
+		<div class="auth__actions">
 			<router-link to="/auth/forgot-password">Forgot Password?</router-link>
 			<router-link to="/auth/register">Don't have an account?</router-link>
 		</div>
